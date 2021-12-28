@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "next-level-stuffs": {
+      "hosting": {
+        "oshop": [
+          "next-level-stuffs"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "next-level-stuffs"
+  }
+}
