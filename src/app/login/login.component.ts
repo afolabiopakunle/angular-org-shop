@@ -14,6 +14,11 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {
-    this.authService.login()
+    this.authService.login();
+    this.getAuthState();
+  }
+
+  getAuthState() {
+    this.authService.authState();
   }
 }

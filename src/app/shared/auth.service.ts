@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
+import { Observable, Subscription } from 'rxjs';
 import { User } from './user.model';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { User } from './user.model';
 })
 export class AuthService {
 
-  user!: User;
+  user: firebase.User | null | undefined;
 
   constructor(public auth: AngularFireAuth) {}
 
@@ -18,6 +19,10 @@ export class AuthService {
 
   logout() {
     this.auth.signOut();
+  }
+
+  authState() {
+   return this.auth.authState
   }
 
 }
