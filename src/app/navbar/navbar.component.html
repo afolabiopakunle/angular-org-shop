@@ -14,6 +14,9 @@
           <a class="nav-link" routerLink="/login">Login</a>
         </li>
       </ul>
+      <div *ngIf="!user">
+        <button (click)="signIn()" class="btn btn-warning">Sign in with Google</button>
+      </div>
       <ul class="navbar-nav  mb-2 mb-lg-0" *ngIf="user">
         <li class="nav-item dropdown" ngbDropdown>
           <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
