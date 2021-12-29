@@ -9,9 +9,11 @@ import { User } from './user.model';
 })
 export class AuthService {
 
-  user: firebase.User | null | undefined;
+  user$!: Observable<firebase.User | null>;
 
-  constructor(public auth: AngularFireAuth) {}
+  constructor(public auth: AngularFireAuth) {
+    this.user$ = auth.authState
+  }
 
   login() {
       this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
@@ -19,10 +21,6 @@ export class AuthService {
 
   logout() {
     this.auth.signOut();
-  }
-
-  authState() {
-   return this.auth.authState
   }
 
 }

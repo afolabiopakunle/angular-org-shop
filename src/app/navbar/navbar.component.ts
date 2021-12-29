@@ -11,11 +11,9 @@ import { Observable } from 'rxjs';
 export class NavbarComponent implements OnInit {
 
   showDropdown = false;
-  user$!: Observable<firebase.User | null>;
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
-   this.user$ = this.authService.authState()
   }
 
   logout() {
